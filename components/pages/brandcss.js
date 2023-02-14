@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-export const categorycss = StyleSheet.create({
+export const brandcss = StyleSheet.create({
     headermainbox: {
         paddingBottom: 10,
         paddingTop: 30,
@@ -67,7 +67,9 @@ export const categorycss = StyleSheet.create({
     trendingtext: {
         color: "#a8a8a8",
         fontFamily: 'Times New Roman,sans-serif',
-        textAlign: "left"
+        textAlign: "left",
+        fontSize:15,
+        fontWeight:700
     },
 
 
@@ -89,14 +91,16 @@ export const categorycss = StyleSheet.create({
         height: 115,
         gap: 7,
         width: "31%",
-        marginBottom: 15
+        marginBottom:25
     },
     trendingimagebox: {
         width: "100%",
         height: "100%",
         // borderWidth: 2,
         // borderColor: "black",
-        borderRadius: 5
+        borderRadius: 5,
+        alignItems: "center",
+        gap: 15
     },
     trendingboxtext: {
         fontWeight: 400,

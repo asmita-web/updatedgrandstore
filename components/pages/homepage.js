@@ -7,79 +7,94 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const categories = [
     {
+        id:1,
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Beers"
+    },
+    {   
+        id:2,
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Beers"
+    },
+    {   
+        id:3,
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Beers"
+    },
+    {   id:4,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:5,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:6,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:7,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:8,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:9,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
-        imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
-    },
-    {
-        imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
-    },
-    {
-        imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
-    },
-    {
+        id:10,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
 ]
 
 const bestseller = [
-    {
+    { 
+        id:1,
         imgurl: require('../../assets/vodka.png'),
         title: "Smirnoff",
         subtitle: "Vodka New 80",
         price: "R 1000"
     },
     {
+        id:2,
         imgurl: require('../../assets/vodka.png'),
         subtitle: "Vodka New 80",
         title: "Smirnoff",
         price: "R 1000"
     },
     {
+        id:3,
         imgurl: require('../../assets/vodka.png'),
         title: "Smirnoff",
         subtitle: "Vodka New 80",
         price: "R 1000"
     },
     {
+        id:4,
         imgurl: require('../../assets/vodka.png'),
         title: "Smirnoff",
         subtitle: "Vodka New 80",
         price: "R 1000"
     },
     {
+        id:5,
         imgurl: require('../../assets/vodka.png'),
         title: "Smirnoff",
         subtitle: "Vodka New 80",
         price: "R 1000"
     },
     {
+        id:6,
         imgurl: require('../../assets/vodka.png'),
         title: "Smirnoff",
         subtitle: "Vodka New 80",
@@ -89,13 +104,13 @@ const bestseller = [
 ]
 
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
     return (
         <ScrollView>
             <SafeAreaView style={{ backgroundColor:"#1a1a1a" }}>
 
                 <View style={Homecss.header}>
-                    <View>
+                    <View onPress={() => navigation.openDrawer()}>
                         <FontAwesome5 name="bars" size={10} color="white" />
                     </View>
                     <View style={{ width: "15%", height: 50 }}>
@@ -122,13 +137,14 @@ export default function HomeScreen() {
                         <View style={Homecss.categorymainbox}>
                             {
                                 categories.map((items,index) => (
-                                    <View key={index} style={Homecss.categorybox}>
+                                    <View key={index.id} style={Homecss.categorybox}>
 
                                         <View style={Homecss.imagebox}>
                                             <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={{ uri: items.imgurl }} />
                                         </View>
                                         <View>
-                                            <Text style={Homecss.categoryboxtext}>{items.title}</Text>
+                                            <Text style={Homecss.categoryboxtext}>
+                                                {items.title}</Text>
                                         </View>
 
                                     </View>
@@ -155,18 +171,28 @@ export default function HomeScreen() {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index} style={Homecss.bestsellermainbox}>
+                                            <View key={index.id} style={Homecss.bestsellermainbox}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
                                                 </View>
-                                                <View style={Homecss.bestsellertext}>
+                                                <View>
+                                                    <Text style={Homecss.bestsellertext}>
                                                     {item.title}
+                                                    </Text>
+                                                   
                                                 </View>
-                                                <View style={Homecss.bestsellertext}>
+                                                <View>
+                                                    <Text style={Homecss.bestsellertext}>
                                                     {item.subtitle}
+                                                    </Text>
+                                                    
                                                 </View >
-                                                <View style={Homecss.bestsellerprice}>{item.price}</View>
+                                                <View style={Homecss.bestsellerprice}>
+                                                    <Text style={Homecss.bestsellerprice}>
+                                                    {item.price}
+                                                    </Text>
+                                                    </View>
                                             </View>
                                         ))
                                     }
@@ -191,19 +217,29 @@ export default function HomeScreen() {
                             <ScrollView horizontal={true}>
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
-                                        bestseller.map(item => (
-                                            <View style={Homecss.bestsellermainbox}>
+                                        bestseller.map((item,index) => (
+                                            <View key={index.id} style={Homecss.bestsellermainbox}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
                                                 </View>
-                                                <View style={Homecss.bestsellertext}>
+                                                <View >
+                                                    <Text style={Homecss.bestsellertext}>
                                                     {item.title}
+                                                    </Text>
+                                                    
                                                 </View>
-                                                <View style={Homecss.bestsellertext}>
+                                                <View >
+                                                    <Text style={Homecss.bestsellertext}>
                                                     {item.subtitle}
+                                                    </Text>
+                                                   
                                                 </View >
-                                                <View style={Homecss.bestsellerprice}>{item.price}</View>
+                                                <View >
+                                                    <Text style={Homecss.bestsellerprice}>
+                                                    {item.price}
+                                                    </Text>
+                                                    </View>
                                             </View>
                                         ))
                                     }
@@ -214,18 +250,15 @@ export default function HomeScreen() {
                         </View>
                     </View>
                 </View>
-                <View style={{ width: "100%", height: "15%", paddingTop: 30, paddingBottom: 10 }}>
+                <View style={{ width: "100%", paddingBottom: 10 }}>
                 
                     <ImageBackground style={{ width: "100%", height: "100%", resizeMode: "cover", resizeMode: "contain" }} source={require('../../assets/fruits.jpg')}>
-                    <LinearGradient
-          colors= {['rgba(0,0,0,0.00)', 'rgba(0,0,0,0.30)']}
-        
-        >
+                    <LinearGradient colors= {['rgba(0,0,0,0.00)', 'rgba(0,0,0,0.30)']} style={{height:"100%"}}>
                         <View style={Homecss.backgroundbox}>
                             <Text style={Homecss.backgroundboxtitle}>Love For The Wines</Text>
                             <Text style={Homecss.backgroundsubtitle}>experience the taste of the fruit</Text>
                         </View>
-                        <LinearGradient colors={['rgba(0,0,0,75%)','rgba(21,21,21,21)', 'rgba(21,21,21,21)','rgba(21,21,21,21)']} style={{height:"100%"}}>
+                        <LinearGradient colors= {['rgba(0,0,0,0.00)','rgb(33,33,33)','rgb(33,33,33)','rgb(33,33,33)']} style={{paddingTop:30,paddingBottom:20}}>
                         <View style={Homecss.sparkingmainbox}>
                             <View style={[Homecss.sparklingbox, Homecss.sparkingboxadjust]}>
                                 <View style={Homecss.sparklingitem}>Sparkling Wine</View>
@@ -246,6 +279,30 @@ export default function HomeScreen() {
                    
                 </View>
 
+                <View style={{ width: "100%", paddingTop: 30, paddingBottom: 10 }}>
+                
+                <ImageBackground style={{ width: "100%", height: "100%", resizeMode: "cover", resizeMode: "contain" }} source={require('../../assets/4.jpg')}>
+                <LinearGradient colors= {['rgba(0,0,0,0.00)', 'rgba(0,0,0,0.30)']} >
+                    <View style={{flexDirection:"column",justifyContent:"center",gap:25,alignItems:"center",paddingTop:30,paddingBottom:30}}>
+                    <View style={Homecss.examplebox}>
+                        <Text style={Homecss.backgroundboxtitle}>DISCOVER SUPER BRANDS</Text>
+                        <Text style={Homecss.backgroundsubtitle}>experience the luxury teste</Text>
+                       
+                    </View>
+                    <Pressable style={Homecss.examplebutton}>
+                            <Text style={Homecss.exampletext}>Example</Text>
+                        </Pressable>
+                   
+                    </View>
+                   
+                
+
+                    </LinearGradient>
+                </ImageBackground>
+               
+            </View>
+
+
                 <View style={{ padding: 13,backgroundColor:"#1a1a1a"}}>
                             <View style={Homecss.categoriesBox}>
                                 <Text style={Homecss.categoryText}>Featured Products</Text>
@@ -259,18 +316,29 @@ export default function HomeScreen() {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index} style={Homecss.bestsellermainbox}>
+                                            <View key={index.id} style={Homecss.bestsellermainbox}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
                                                 </View>
-                                                <View style={Homecss.bestsellertext}>
+                                                <View >
+                                                    <Text style={Homecss.bestsellertext}>
                                                     {item.title}
+                                                    </Text>
+                                                   
                                                 </View>
-                                                <View style={Homecss.bestsellertext}>
+                                                <View >
+                                                    <Text style={Homecss.bestsellertext}>
                                                     {item.subtitle}
+                                                    </Text>
+                                                 
                                                 </View >
-                                                <View style={Homecss.bestsellerprice}>{item.price}</View>
+                                                <View>
+                                                    <Text  style={Homecss.bestsellerprice}>
+                                                    {item.price}
+                                                    </Text>
+                                                 
+                                                    </View>
                                             </View>
                                         ))
                                     }

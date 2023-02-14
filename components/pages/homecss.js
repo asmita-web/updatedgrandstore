@@ -115,15 +115,15 @@ export const Homecss = StyleSheet.create({
     sparkingmainbox: {
         justifyContent: "center",
         alignItems: "center",
-        height:"100%"
-        
+        height: "100%"
+
     },
     sparklingbox: {
         gap: 10,
         color: "white",
         flexirection: "row",
         justifyContent: "center",
-        flexDirection:"row"
+        flexDirection: "row"
     },
     sparklingitem: {
         paddingBottom: 5,
@@ -136,9 +136,28 @@ export const Homecss = StyleSheet.create({
         borderColor: "grey",
         borderWidth: 1
     },
-    sparkingboxadjust:{
-        paddingBottom:15
+    sparkingboxadjust: {
+        paddingBottom: 15
     },
+
+    examplebutton: {
+        backgroundColor: "#dca743",
+        paddingTop: 5,
+        paddingLeft: 20,
+        borderRadius:20,
+        paddingBottom: 5,
+        paddingRight: 20,
+    },
+    exampletext: {
+        color: "white",
+        fontFamily: 'Times New Roman,sans-serif',
+        fontSize: 15,
+    },
+    examplebox: {
+        gap: 5,
+        justifyContent: "center",
+        alignItems: "center"
+    }
 
 
 })
