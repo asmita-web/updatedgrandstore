@@ -18,6 +18,10 @@ import Brand from './components/pages/Brand';
 import Signin from './components/pages/signin';
 import CustomDrawerContent from './components/pages/CustomDrawerContent';
 import About from './components/pages/aboutus';
+import shop from './components/pages/shop';
+import Wine from './components/pages/wine';
+import Trade from './components/pages/trade';
+import Offer from './components/pages/offer';
 
 
 
@@ -46,16 +50,16 @@ function Search() {
         </View>
     );
 }
-function Myprofile() {
-    return (
-        <View style={{
-            flex: 1, alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            <Text>my profile</Text>
-        </View>
-    );
-}
+// function Myprofile() {
+//     return (
+//         <View style={{
+//             flex: 1, alignItems: 'center',
+//             justifyContent: 'center'
+//         }}>
+//             <Text>my profile</Text>
+//         </View>
+//     );
+// }
 function Notification() {
     return (
         <View style={{
@@ -114,7 +118,7 @@ function Sidebar() {
                 name="Notification" component={About} />
             <Drawer.Screen
                 options={{
-                    drawerLabel: "Shop",
+                    title: "Shop",
                     drawerIcon: ({ focused }) => (
                         <Feather name='file-text' size={20} color={focused ? '#dca743' : 'white'} />
                     ),
@@ -129,12 +133,12 @@ function Sidebar() {
                         borderBottomWidth:1
                     }
                 }}
-                name="Storeinfo" component={Notification} />
+                name="Shop" component={shop} />
 
 
             <Drawer.Screen
                 options={{
-                    drawerLabel: "Wine",
+                    title: "Wine",
                     drawerIcon: ({ focused }) => (
                         <Ionicons name='chatbox-ellipses' size={20} color={focused ? '#dca743' : 'white'} />
                     ),
@@ -149,7 +153,7 @@ function Sidebar() {
                         borderBottomWidth:1
                     }
                 }}
-                name="ChatWithUs" component={Notification} />
+                name="Wine" component={Wine} />
             <Drawer.Screen
                 options={{
                     drawerLabel: "Trade",
@@ -170,10 +174,10 @@ function Sidebar() {
                     }
 
                 }}
-                name="ReviewUs" component={Notification} />
+                name="Trade" component={Trade} />
             <Drawer.Screen
                 options={{
-                    drawerLabel: "Offers",
+                    title: "Offers",
                     drawerIcon: ({ focused }) => (
                         <FontAwesome5 name='edit' size={20} color={focused ? '#dca743' : 'white'} />
                     ),
@@ -191,7 +195,7 @@ function Sidebar() {
                     }
 
                 }}
-                name="Terms&Conditions" component={Notification} />
+                name="Terms&Conditions" component={Offer} />
             <Drawer.Screen
                 options={{
                     drawerLabel: "Contact",

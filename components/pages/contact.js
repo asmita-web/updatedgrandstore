@@ -11,31 +11,39 @@ const Contact = () => {
     <ScrollView style={{ backgroundColor: "#1c1c1c"}}>
       <SafeAreaView>
       <View>
-      <View>
-        <View style={{padding:20}}>
+      <View style={contactcss.infomaincontent}>
+        <View style={contactcss.addressbox}>
           <View style={contactcss.infobox}>
             <View style={contactcss.phone}><FontAwesome name="phone" size={20} color="black"/></View>
             <View ><Text style={contactcss.infotext}>+27 82 496 7256</Text></View>
           </View>
 
           <View style={contactcss.infobox}>
-            <View ><AntDesign name="earth" size={20} color="black"/></View>
+            <View style={contactcss.phone}><AntDesign name="earth" size={20} color="black"/></View>
             <View ><Text style={contactcss.infotext}>info@grandstore.co.za</Text></View>
           </View>
 
           <View style={contactcss.infobox}>
             <View style={contactcss.phone}><Ionicons name="location-sharp" size={20} color="black"/></View>
-            <View ><Text style={contactcss.infotext}>Nivarp International Pvt ltd.<br/> Rosebank mall,
-            PO Box 1022, Saxonwold. 2196.<br/> Johannesburg. South Africa.</Text></View>
+            <View ><Text style={contactcss.infotext}>Nivarp International Pvt ltd.
+            </Text>
+            <Text style={contactcss.infotext}>Rosebank mall,</Text>
+            <Text style={contactcss.infotext}>
+            PO Box 1022, Saxonwold. 2196.
+            </Text>
+            <Text style={contactcss.infotext}>
+            Johannesburg. South Africa.
+            </Text>
+            </View>
           </View>
         </View>
       </View>
 
-      <View>
-        <View>
-          <Text>Get In Touch</Text>
+      <View style={contactcss.infomaincontent}>
+        <View style={contactcss.getintouch}>
+          <Text style={contactcss.getintouchtext}>Get In Touch</Text>
         </View>
-        <View>
+        <View style={contactcss.textinput}>
         <TextInput placeholder="First name" style={contactcss.inputbox}
                   keyboardType="numeric" />
                 <TextInput placeholder="Last name" style={contactcss.inputbox}
@@ -51,7 +59,7 @@ const Contact = () => {
                 <View style={{ marginTop: 13 }}>
                   <Pressable style={contactcss.sendmessage}
                   >
-                    <Text style={contactcss.sendmessagetext}>Send Message</Text>
+                    <Text style={contactcss.sendmessagetext}>SUBMIT</Text>
                   </Pressable>
                 </View>
         </View>
