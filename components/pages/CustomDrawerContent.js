@@ -6,18 +6,22 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { customecss } from './customecss';
 
 
-export default function CustomDrawerContent(props) {
+export default function CustomDrawerContent(props,navigator) {
 
     useEffect(() => {
         console.log("...props", props)
     }, [])
+
+    const Loginnavigator=()=>{
+        navigator.navigate('signin')
+    }
 
     return (
 
 
         <View>
             <View>
-                <View style={customecss.profilebox} >
+                <View style={customecss.profilebox} onPress={Loginnavigator}>
                     <View style={customecss.profile}><FontAwesome style={customecss.profiletext1} name="user" size={20} color="white" /></View>
                     <View><Text style={customecss.profiletext}>Please Sign in</Text></View>
                 </View>

@@ -22,54 +22,38 @@ import shop from './components/pages/shop';
 import Wine from './components/pages/wine';
 import Trade from './components/pages/trade';
 import Offer from './components/pages/offer';
+import Cart from './components/pages/cart';
+import ProductDetails from './components/pages/productdetails';
+import Customestack from '@react-navigation/stack'
+import Login from './components/pages/loginnavigator/login/login';
+import Register from './components/pages/loginnavigator/login/register/register';
 
 
 
 
+// const stack = Customestack();
 
-
-function Order() {
-    return (
-        <View style={{
-            flex: 1, alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            <Text>About Page</Text>
-        </View>
-    );
-}
-
-
-function Search() {
-    return (
-        <View style={{
-            flex: 1, alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            <Text>Search Page</Text>
-        </View>
-    );
-}
-// function Myprofile() {
-//     return (
-//         <View style={{
-//             flex: 1, alignItems: 'center',
-//             justifyContent: 'center'
-//         }}>
-//             <Text>my profile</Text>
-//         </View>
-//     );
+// function Shopnavigator(){
+//     return(
+//         <stack.Navigator initialRouteName="shoppage">
+//             <stack.Screen name="shoppage" component={shop}/>
+//             <stack.Screen name="shopproduct" component={ProductDetails}/>
+//         </stack.Navigator>
+//     )
 // }
-function Notification() {
-    return (
-        <View style={{
-            flex: 1, alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            <Text>Notification</Text>
-        </View>
-    );
-}
+
+// function Winenavigator(){
+//     return(
+//         <stack.Navigator initialRouteName="winepage">
+//             <stack.Screen name="winepage" component={Wine}/>
+//             <stack.Screen name="wineproduct" component={ProductDetails}/>
+//         </stack.Navigator>
+//     )
+// }
+
+
+
+
 const Drawer = createDrawerNavigator();
 function Sidebar() {
     return (
@@ -347,13 +331,13 @@ function Routing() {
                         headerTitleStyle: {
                             fontWeight: 'bold',
                         },
-                        headerShown: false,
+                        // headerShown: false,
                         tabBarIcon: ({ focused }) => (
                             <FontAwesome name="search" color={focused ? '#dca743' : 'white'} size={20} />
                         ),
 
                     }}
-                    component={Search} />
+                    component={Register} />
 
 
 

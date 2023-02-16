@@ -4,21 +4,21 @@ export const contactcss = StyleSheet.create({
     inputbox: {
         padding: 12,
         borderColor: "#575757",
-        borderRadius:5,
+        borderRadius: 5,
         borderWidth: 1,
         width: "100%",
         color: "#a8a8a8"
     },
     sendmessage: {
         backgroundColor: '#141413',
-        borderRadius:5,
+        borderRadius: 5,
         paddingTop: 12,
         paddingLeft: 15,
         paddingBottom: 12,
         paddingRight: 15,
-        borderColor:"#be9742",
-        width:"40%",
-        borderWidth:1
+        borderColor: "#be9742",
+        width: "40%",
+        borderWidth: 1
     },
     sendmessagetext: {
         fontSize: 15,
@@ -55,33 +55,33 @@ export const contactcss = StyleSheet.create({
     infomaincontent: {
         margin: 15,
         borderColor: "#575757",
-        borderWidth:1,
+        borderWidth: 1,
         padding: 20
     },
-    infocontentinner:{
-        paddingTop:40,
-        gap:25,
-        paddingBottom:40
+    infocontentinner: {
+        paddingTop: 40,
+        gap: 25,
+        paddingBottom: 40
     },
-    addressbox:{
-    paddingLeft: 20,
-    gap: 30,
-    paddingBottom: 30,
-    paddingTop: 30
+    addressbox: {
+        paddingLeft: 20,
+        gap: 30,
+        paddingBottom: 30,
+        paddingTop: 30
     },
-    getintouch:{
-    paddingTop: 15,
-    /* padding: 20px; */
-    paddingBottom: 15
+    getintouch: {
+        paddingTop: 15,
+        /* padding: 20px; */
+        paddingBottom: 15
     },
-    getintouchtext:{
-   color: "#c99742",
-    fontSize: 20,
-    fontFamily: 'Times New Roman,sans-serif',
+    getintouchtext: {
+        color: "#c99742",
+        fontSize: 20,
+        fontFamily: 'Times New Roman,sans-serif',
 
     },
-    textinput:{
-   flexDirection: "column",
-    gap: 15
+    textinput: {
+        flexDirection: "column",
+        gap: 15
     }
 })

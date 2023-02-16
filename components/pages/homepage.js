@@ -137,7 +137,7 @@ export default function HomeScreen({navigation}) {
                         <View style={Homecss.categorymainbox}>
                             {
                                 categories.map((items,index) => (
-                                    <View key={index.id} style={Homecss.categorybox}>
+                                    <View key={index} style={Homecss.categorybox}>
 
                                         <View style={Homecss.imagebox}>
                                             <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={{ uri: items.imgurl }} />
@@ -171,7 +171,7 @@ export default function HomeScreen({navigation}) {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index.id} style={Homecss.bestsellermainbox}>
+                                            <View key={index} style={Homecss.bestsellermainbox}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
@@ -218,7 +218,7 @@ export default function HomeScreen({navigation}) {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index.id} style={Homecss.bestsellermainbox}>
+                                            <View key={index} style={Homecss.bestsellermainbox}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
@@ -316,7 +316,7 @@ export default function HomeScreen({navigation}) {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index.id} style={Homecss.bestsellermainbox}>
+                                            <View key={index} style={Homecss.bestsellermainbox}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
