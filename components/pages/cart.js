@@ -1,102 +1,121 @@
-import React,{useState} from "react";
-import { View, Text, SafeAreaView, ScrollView, Image } from "react-native";
-import {cartcss} from "./cartcss";
+import React, { useState } from "react";
+import { View, Text, SafeAreaView, ScrollView, Image, Pressable } from "react-native";
+import { cartcss } from "./cartcss";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Entypo from 'react-native-vector-icons/Entypo'
+
+
+const cartproduct = [
+    {
+        id:1,
+        title:"Amstel Lager Can (1 x 440ML)",
+        imgurl:require('../../assets/vodka.png'),
+        pack:"Single",
+        price:"19",
+    },
+    {
+        id:2,
+        title:"Amstel Lager Can (1 x 440ML)",
+        imgurl:require('../../assets/vodka.png'),
+        pack:"Single",
+        price:"19",
+    },
+    {
+        id:2,
+        title:"Amstel Lager Can (1 x 440ML)",
+        imgurl:require('../../assets/vodka.png'),
+        pack:"Single",
+        price:"19",
+    }
+]
 
 export default function Cart() {
 
-    const [length, setlength] = useState('10');
-    let productname = "Amstel Lager Can (1 x 440ML)"
+    const [qty, setqty] = useState(1)
 
     return (
 
         <ScrollView style={{ backgroundColor: "#1c1c1c" }}>
             <SafeAreaView>
                 <View style={cartcss.maincartbox}>
-                    <View style={cartcss.cartbox}>
-                        <View style={cartcss.cartinnerimagebox}>
-                            {/* <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>IMAGE</Text>
-                                </View> */}
-                            <View style={cartcss.cartimage}>
-                                <Image style={{ width: "100%", height:"100%" }} source={require('../../assets/vodka.png')} />
+                    {
+                        cartproduct.map((item,index)=>(
+                            <View key={index} style={cartcss.dividecart}>
+                            <View style={cartcss.cartbox}>
+                                <View style={cartcss.cartinnerimagebox}>
+    
+                                    <View style={cartcss.cartimage}>
+                                        <Image style={{ width: "100%", height: "100%" }} source={{uri:item.imgurl}}  />
+                                    </View>
+                                </View>
+                                <View style={cartcss.cartinnerimagebox}>
+    
+                                    <View>
+                                        <Text style={[cartcss.subtextcart]}>
+                                            {item.title}
+                                        </Text>
+                                        <Text style={[cartcss.packprice]}><b>Pack: </b>
+                                            {item.pack}
+                                        </Text>
+                                        <Text style={[cartcss.packprice]}><b>Price: </b>
+                                            R {item.price}
+                                        </Text>
+                                    </View>
+    
+                                </View>
+    
+                                <View style={cartcss.cartinnerimagebox}>
+    
+                                    <View style={cartcss.quantity} >
+                                        <View style={cartcss.qtytext}>
+                                            <Text style={cartcss.qtynumber} onPress={() => { setqty(qty - 1) }}>
+                                                -
+                                            </Text>
+                                        </View>
+                                        <View style={cartcss.qtytext}>{qty}</View>
+                                        <View onPress={() => { setqty(qty + 1) }} style={cartcss.qtytext1}>
+                                            <Text style={cartcss.qtynumber} onPress={() => { setqty(qty + 1) }}>
+                                                +
+                                            </Text>
+                                        </View>
+                                    </View>
+                                </View>
+                                <View style={cartcss.cartinnerimagebox}>
+    
+                                    <View>
+                                        <Text style={cartcss.subprice}>
+                                           R {item.price}
+                                        </Text>
+                                    </View>
+    
+                                </View>
+    
+    
+                            </View>
+                            <View>
+                                <View>
+                                    <FontAwesome name="close" color="#c99742" size={10} />
+                                </View>
                             </View>
                         </View>
-                        <View style={cartcss.cartinnerimagebox}>
-                            {/* <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>PRODUCT<br/> NAME</Text>
-                            </View> */}
-                            <View>
-                                <Text style={[cartcss.subtextcart]}>
-                                Amstel Lager Can (1 x 440ML)
-                                </Text>
-                                <Text style={[cartcss.subtextcart]}><b>Pack: </b>
-                                single
-                                </Text>
-                                <Text style={[cartcss.subtextcart]}><b>Price: </b>
-                                 R 19
-                                </Text>
-                            </View>
-
+                        ))
+                    }
+                   
+                    <View style={cartcss.checkoutbox}>
+                        <View style={cartcss.carttextbox}>
+                            <Text style={cartcss.carttotaltext}>CART TOTAL</Text>
                         </View>
-                        {/* <View style={cartcss.cartinnerimagebox}>
-                            <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>PACK</Text>
-                            </View>
-                            <View>
-                                <Text style={cartcss.cartproductname}>single</Text>
-                            </View>
-
-                        </View> */}
-                        {/* <View style={cartcss.cartinnerimagebox}>
-                            <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>
-                                    PRICE
-                                </Text>
-                            </View>
-                            <View>
-                                <Text style={cartcss.cartproductname}>
-                                    R 19
-                                </Text>
-                            </View>
-
-                        </View> */}
-                        <View style={cartcss.cartinnerimagebox}>
-                            {/* <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>QTY</Text>
-                                </View> */}
-                            <View>
-                                <View>-</View>
-                                <View>1</View>
-                                <View>+</View>
-                            </View>
+                        <View style={cartcss.subtotalbox}>
+                            <Text style={cartcss.subtotaltext}>Sub Total(R)</Text>
+                            <Text style={cartcss.subtotalprice}>19</Text>
                         </View>
-                        <View style={cartcss.cartinnerimagebox}>
-                            <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>
-                                    SUB<br/>
-                                    TOTAL
+                        <View style={cartcss.checkouttextbox}>
+                            <Pressable style={cartcss.proceedbutton}>
+                                <Entypo name="check" color="#c99742" size={16} />
+                                <Text style={cartcss.proceedtext}>
+                                    Proceed to Checkout
                                 </Text>
-                            </View>
-                            <View>
-                                <Text  style={cartcss.subtextcart}>
-                                    R 19
-                                </Text>
-                            </View>
-
-                        </View>
-
-                        <View style={cartcss.cartinnerimagebox}>
-                            {/* <View style={cartcss.headingtitlebox}>
-                                <Text style={cartcss.cartproductname}>
-                                    REMOVE
-                                </Text>
-                            </View> */}
-                            <View>
-                                <Text style={cartcss.subtextcart}>
-                                    *
-                                </Text>
-                            </View>
-
+                            </Pressable>
                         </View>
                     </View>
                 </View>

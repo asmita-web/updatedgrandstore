@@ -11,54 +11,67 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const categories = [
     {
+        id:1,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:2,
         imgurl: require('../../assets/2.jpg'),
         title: "Beers"
     },
     {
+        id:3,
         imgurl: require('../../assets/3.jpg'),
         title: "Beers"
     },
     {
+        id:4,
         imgurl: require('../../assets/4.jpg'),
         title: "Beers"
     },
     {
+        id:5,
         imgurl: require('../../assets/5.jpg'),
         title: "Beers"
     },
     {
+        id:6,
         imgurl: require('../../assets/redwine.jpg'),
         title: "Beers"
     },
     {
+        id:7,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:8,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:9,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:10,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:11,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:12,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
     {
+        id:13,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
@@ -66,61 +79,73 @@ const categories = [
 
 const trendingproduct =[
     {
+        id:1,
         imgurl: require('../../assets/2.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:2,
         imgurl: require('../../assets/whisky.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:3,
         imgurl: require('../../assets/3.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:4,
         imgurl: require('../../assets/4.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:5,
         imgurl: require('../../assets/5.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:6,
         imgurl: require('../../assets/redwine.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:7,
         imgurl: require('../../assets/2.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:8,
         imgurl: require('../../assets/3.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:9,
         imgurl: require('../../assets/4.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:10,
         imgurl: require('../../assets/redwine.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:11,
         imgurl: require('../../assets/redwine.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
     },
     {
+        id:12,
         imgurl: require('../../assets/redwine.jpg'),
         title: "Sparking Wine",
         subtitle:"Best Brand"
@@ -136,7 +161,12 @@ export default function Categories({navigation}) {
                 <View style={categorycss.headermainbox}>
                     <View style={categorycss.allcategorybox}>
                         <View style={categorycss.allcategory}>
-                            <View onpress={backhome}><Ionicons style={categorycss.categorytext} name="arrow-back" size={20} color="black" /></View>
+                            <View>
+                                <Text onPress={()=>{backhome()}}>
+                                <Ionicons  style={categorycss.categorytext} name="arrow-back" size={20} color="black" />
+                                </Text>
+                               
+                                </View>
                             <View><Text style={categorycss.categorytext}>All Categories</Text></View>
                         </View>
                         <View style={categorycss.allcategory}>
@@ -150,8 +180,8 @@ export default function Categories({navigation}) {
                 <View style={{ padding: 20, backgroundColor: "#1a1a1a" }}>
                     <View style={categorycss.categorymainbox}>
                         {
-                            categories.map((items) => (
-                                <View key={items} style={categorycss.categorybox}>
+                            categories.map((items,index) => (
+                                <View key={index} style={categorycss.categorybox}>
 
                                     <View style={categorycss.imagebox}>
                                         <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={{ uri: items.imgurl }} />
@@ -177,8 +207,8 @@ export default function Categories({navigation}) {
                         <View style={categorycss.trendingmainbox}>
 
                             {
-                                trendingproduct.map((items) => (
-                                    <View key={items} style={categorycss.trendingbox}>
+                                trendingproduct.map((items,index) => (
+                                    <View key={index} style={categorycss.trendingbox}>
 
                                         <View style={categorycss.trendingimagebox}>
                                             <ImageBackground style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 5 }} source={{ uri: items.imgurl }}>

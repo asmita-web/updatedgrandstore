@@ -110,8 +110,11 @@ export default function HomeScreen({navigation}) {
             <SafeAreaView style={{ backgroundColor:"#1a1a1a" }}>
 
                 <View style={Homecss.header}>
-                    <View onPress={() => navigation.openDrawer()}>
+                    <View >
+                        <Text onPress={() => navigation.openDrawer()}>
                         <FontAwesome5 name="bars" size={10} color="white" />
+
+                        </Text>
                     </View>
                     <View style={{ width: "15%", height: 50 }}>
                         <Image style={{ width: "100%", height: "100%" }} source={require('../../assets/logo.png')} />

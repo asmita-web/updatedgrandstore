@@ -27,6 +27,7 @@ import ProductDetails from './components/pages/productdetails';
 import Customestack from '@react-navigation/stack'
 import Login from './components/pages/loginnavigator/login/login';
 import Register from './components/pages/loginnavigator/login/register/register';
+import Header from './components/header';
 
 
 
@@ -63,7 +64,7 @@ function Sidebar() {
             <Drawer.Screen name='Homescreen'
                 component={HomeScreen}
                 options={{
-                    drawerLabel: "Home",
+                    title: "Home",
                     drawerIcon: ({ focused }) => (
                         <Ionicons name='ios-home' size={20} color={focused ? '#dca743' : 'white'} />
                     ),
@@ -76,7 +77,13 @@ function Sidebar() {
                         paddingBottom: 10,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },
+                    headerStyle:{
+                        backgroundColor:"#212121",
+                    },
+                    headerRight:()=>(
+                        <Header/>
+                    )
 
                 }}
             />
@@ -337,7 +344,7 @@ function Routing() {
                         ),
 
                     }}
-                    component={Register} />
+                    component={Cart} />
 
 
 
