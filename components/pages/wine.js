@@ -67,8 +67,8 @@ export default function Wine() {
 
                                 {
 
-                                    productlist.map((items) => (
-                                        <View key={items} style={shopcss.trendingbox}>
+                                    productlist.map((items,index) => (
+                                        <View key={index} style={shopcss.trendingbox}>
 
                                             <View style={shopcss.trendingimagebox}>
                                                 <View style={shopcss.imagenewbox}>

@@ -51,29 +51,27 @@ const productlist = [
     }
 ]
 
-export default function shop() {
+export default function shop({ navigation }) {
     return (
 
         <ScrollView style={{ backgroundColor: "#1c1c1c" }}>
             <SafeAreaView>
 
                 <View style={shopcss.mainbox}>
-                    {/* <View style={shopcss.shopbox}>
-                        <Text style={shopcss.shoptext}>Shop</Text>
-                    </View> */}
+                   
                     <View>
                         <View>
                             <View style={shopcss.trendingmainbox}>
 
                                 {
 
-                                    productlist.map((items) => (
-                                        <View key={items} style={shopcss.trendingbox}>
-
+                                    productlist.map((items, index) => (
+                                        <View key={index} style={shopcss.trendingbox}>
+                                            <Text onPress={()=>{navigation.navigate('shopproduct')}}>
                                             <View style={shopcss.trendingimagebox}>
                                                 <View style={shopcss.imagenewbox}>
-                                                    <View style={{height:60,width:60}}>
-                                                       <Image source={{uri:items.imgurl}} style={{width:"100%",height:"100%"}}/>
+                                                    <View style={{ height: 60, width: 60 }}>
+                                                        <Image source={{ uri: items.imgurl }} style={{ width: "100%", height: "100%" }} />
                                                     </View>
 
                                                     <View style={shopcss.addtocartmainbox}>
@@ -91,6 +89,9 @@ export default function shop() {
                                                 </View>
 
                                             </View>
+                                            </Text>
+
+                                          
 
                                         </View>
 

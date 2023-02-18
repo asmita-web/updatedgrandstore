@@ -7,8 +7,10 @@ export const Homecss = StyleSheet.create({
         backgroundColor: "#212121",
         flexDirection: "row",
         justifyContent: "space-between",
-        padding: 10,
-        alignItems: "center"
+        padding: 16,
+        alignItems: "center",
+        position:"sticky",
+        // top:"0%"
     },
 
     categoriesBox: {
@@ -21,18 +23,21 @@ export const Homecss = StyleSheet.create({
     categoryText: {
         color: "#a8a8a8",
         fontFamily: 'Times New Roman,sans-serif',
+        fontSize: 18,
+        fontWeight: "bold"
     },
 
     viewallbox: {
-        paddingTop: 5,
+        paddingTop: 7,
         flexDirection: "row",
         alignItems: "center",
         gap: 5,
         justifyContent: "center",
         backgroundColor: "#dca743",
-        paddingBottom: 5,
+        paddingBottom: 7,
         paddingLeft: 12,
-        paddingRight: 12
+        paddingRight: 12,
+        borderRadius:5
     },
     viewalltext: {
         color: "white",
@@ -75,24 +80,25 @@ export const Homecss = StyleSheet.create({
         padding: 12,
         alignItems: "center",
         justifyContent: "center",
+        width:"20%",
         gap: 8,
 
     },
     bestsellerimagebox: {
-        width: 35, height: 50,
+        width:60, height:85,
     },
     bestsellertext: {
-        fontSize: 10,
+        fontSize: 15,
         color: "#a8a8a8",
         fontFamily: 'Times New Roman,sans-serif',
     },
     bestsellerprice: {
         color: "#dca743",
-        fontSize: 13,
+        fontSize: 17,
         fontWeight: 600
     },
     bestsellerouterbox: {
-        height: 150,
+        height:200,
         flexDirection: "row",
         gap: 15
     },
@@ -157,6 +163,10 @@ export const Homecss = StyleSheet.create({
         gap: 5,
         justifyContent: "center",
         alignItems: "center"
+    },
+    stickyhead:{
+        position:'relative',
+        backgroundColor:"#1a1a1a"
     }
 
 

@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import { View, Text, Button, SafeAreaView, ScrollView, Image, Pressable, ImageBackground } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Homecss } from "./homecss";
 import { LinearGradient } from 'expo-linear-gradient';
+import Header from "../header";
 
 const categories = [
     {
@@ -105,14 +106,23 @@ const bestseller = [
 
 
 export default function HomeScreen({navigation}) {
+    const [data, setdata] = useState(true)
+
+    const example =()=>{
+        alert("hello")
+    }
+
+    const opendrawer=()=>{
+        navigation.openDrawer()
+    }
     return (
-        <ScrollView>
-            <SafeAreaView style={{ backgroundColor:"#1a1a1a" }}>
+        <ScrollView >
+            <SafeAreaView  style={Homecss.stickyhead}>
 
                 <View style={Homecss.header}>
-                    <View >
-                        <Text onPress={() => navigation.openDrawer()}>
-                        <FontAwesome5 name="bars" size={10} color="white" />
+                    <View>
+                        <Text onPress={() => {opendrawer()}}>
+                        <FontAwesome5 name="bars" size={13} color="white" />
 
                         </Text>
                     </View>
@@ -120,9 +130,10 @@ export default function HomeScreen({navigation}) {
                         <Image style={{ width: "100%", height: "100%" }} source={require('../../assets/logo.png')} />
                     </View>
                     <View>
-                        <FontAwesome5 name="shopping-cart" size={10} color="white" />
+                        <FontAwesome5 name="shopping-cart" size={13} color="white" />
                     </View>
                 </View>
+               
                 <View style={{ padding: 13 }}>
                     <View style={{ width: "100%", height: 160 }}>
                         <Image style={{ width: "100%", height: "100%" }} source={require('../../assets/mcivor.png')} />
@@ -357,9 +368,14 @@ export default function HomeScreen({navigation}) {
         >
           <Text>Vertical Gradient</Text>
         </LinearGradient> */}
+       
             </SafeAreaView>
+            
         </ScrollView>
-
+         
 
     );
+    
+ 
+
 }

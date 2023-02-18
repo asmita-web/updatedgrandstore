@@ -24,33 +24,60 @@ import Trade from './components/pages/trade';
 import Offer from './components/pages/offer';
 import Cart from './components/pages/cart';
 import ProductDetails from './components/pages/productdetails';
-import Customestack from '@react-navigation/stack'
+import {createStackNavigator} from '@react-navigation/stack'
 import Login from './components/pages/loginnavigator/login/login';
 import Register from './components/pages/loginnavigator/login/register/register';
 import Header from './components/header';
+import Loginnavigator from './components/pages/loginnavigator/loginnavigator';
 
 
 
 
-// const stack = Customestack();
+const stack = createStackNavigator();
 
-// function Shopnavigator(){
-//     return(
-//         <stack.Navigator initialRouteName="shoppage">
-//             <stack.Screen name="shoppage" component={shop}/>
-//             <stack.Screen name="shopproduct" component={ProductDetails}/>
-//         </stack.Navigator>
-//     )
-// }
+function Shopnavigator(){
+    return(
+        <stack.Navigator initialRouteName="shoppage">
+            <stack.Screen
+            options={{
+                title:"Shop",
+                headerShown:true,
+               
+            }}
+            // canGoBack
+             name="shoppage" component={shop}/>
+            <stack.Screen
+            options={{
+                title:"Product",
+                headerShown:true
+            }}
+             name="shopproduct" component={ProductDetails}/>
+        </stack.Navigator>
+    )
+}
 
-// function Winenavigator(){
-//     return(
-//         <stack.Navigator initialRouteName="winepage">
-//             <stack.Screen name="winepage" component={Wine}/>
-//             <stack.Screen name="wineproduct" component={ProductDetails}/>
-//         </stack.Navigator>
-//     )
-// }
+function Winenavigator(){
+    return(
+        <stack.Navigator
+        
+         initialRouteName="winepage">
+            <stack.Screen 
+             options={{
+                title:"Wine",
+                headerShown:true
+            }}
+             name="winepage" component={Wine}/>
+            <stack.Screen 
+             options={{
+                title:"Product",
+                headerShown:true
+            }}
+             name="wineproduct" component={ProductDetails}/>
+        </stack.Navigator>
+    )
+}
+
+
 
 
 
@@ -62,9 +89,10 @@ function Sidebar() {
         }}
             drawerContent={(props) => <CustomDrawerContent {...props} />}>
             <Drawer.Screen name='Homescreen'
-                component={HomeScreen}
+                component={Loginnavigator}
                 options={{
                     title: "Home",
+                    // header:()=><Header/>,
                     drawerIcon: ({ focused }) => (
                         <Ionicons name='ios-home' size={20} color={focused ? '#dca743' : 'white'} />
                     ),
@@ -78,12 +106,13 @@ function Sidebar() {
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
                     },
-                    headerStyle:{
-                        backgroundColor:"#212121",
-                    },
-                    headerRight:()=>(
-                        <Header/>
-                    )
+                    headerShown: false,
+                    // headerStyle:{
+                    //     backgroundColor:"#212121",
+                    // },
+                    // headerRight:()=>(
+                    //     <Header/>
+                    // )
 
                 }}
             />
@@ -103,10 +132,14 @@ function Sidebar() {
                         paddingBottom: 10,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },
+                       headerStyle:{
+                        // backgroundColor:"#212121",
+                        color:"#a8a8a8"
+                    },
 
                 }}
-                name="Notification" component={About} />
+                name="Aboutus" component={About} />
             <Drawer.Screen
                 options={{
                     title: "Shop",
@@ -122,9 +155,16 @@ function Sidebar() {
                         paddingBottom: 10,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },  
+                    // headerShown:false,
+                     headerStyle:{
+                            // backgroundColor:"#212121",
+                            color:"#a8a8a8"
+                        },
+                        headerShown:false
                 }}
-                name="Shop" component={shop} />
+                name="Shop" component={Shopnavigator} />
+
 
 
             <Drawer.Screen
@@ -142,9 +182,15 @@ function Sidebar() {
                         paddingBottom: 10,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },
+                       
+                    headerStyle:{
+                        // backgroundColor:"#212121",
+                        color:"#a8a8a8"
+                    },
+                    headerShown:false
                 }}
-                name="Wine" component={Wine} />
+                name="Wine" component={Winenavigator} />
             <Drawer.Screen
                 options={{
                     drawerLabel: "Trade",
@@ -162,7 +208,12 @@ function Sidebar() {
                         borderBottomWidth:1,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },
+
+                       headerStyle:{
+                        // backgroundColor:"#212121",
+                        color:"#a8a8a8"
+                    },
 
                 }}
                 name="Trade" component={Trade} />
@@ -183,10 +234,15 @@ function Sidebar() {
                         borderBottomWidth:1,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },
+
+                       headerStyle:{
+                        backgroundColor:"#212121",
+                        color:"#a8a8a8"
+                    },
 
                 }}
-                name="Terms&Conditions" component={Offer} />
+                name="Offer" component={Offer} />
             <Drawer.Screen
                 options={{
                     drawerLabel: "Contact",
@@ -202,7 +258,12 @@ function Sidebar() {
                         paddingBottom: 10,
                         borderBottomColor:"#2b2b2b",
                         borderBottomWidth:1
-                    }
+                    },
+
+                       headerStyle:{
+                        // backgroundColor:"#212121",
+                        color:"#a8a8a8"
+                    },
 
                 }}
                 name="PrivacyPolicy" component={Contact} />
