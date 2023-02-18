@@ -116,7 +116,7 @@ export default function HomeScreen({navigation}) {
         navigation.openDrawer()
     }
     return (
-        <ScrollView >
+        <ScrollView stickyHeaderIndices={[1]}>
             <SafeAreaView  style={Homecss.stickyhead}>
 
                 <View style={Homecss.header}>
@@ -133,7 +133,7 @@ export default function HomeScreen({navigation}) {
                         <FontAwesome5 name="shopping-cart" size={13} color="white" />
                     </View>
                 </View>
-               
+                {/* <Header/> */}
                 <View style={{ padding: 13 }}>
                     <View style={{ width: "100%", height: 160 }}>
                         <Image style={{ width: "100%", height: "100%" }} source={require('../../assets/mcivor.png')} />

@@ -13,7 +13,7 @@ export default function Header() {
         <View style={style.container}>
             <View>
                 <Text >
-                    <FontAwesome5 name="bars" size={10} color="white" />
+                    <FontAwesome5 name="bars" size={13} color="white" />
 
                 </Text>
             </View>
@@ -21,7 +21,7 @@ export default function Header() {
                 <Image style={{ width: "100%", height: "100%" }} source={require('../assets/logo.png')} />
             </View>
             <View>
-                <FontAwesome5 name="shopping-cart" size={10} color="white" />
+                <FontAwesome5 name="shopping-cart" size={13} color="white" />
 
             </View>
 
@@ -31,8 +31,11 @@ export default function Header() {
 
 const style = StyleSheet.create({
     container: {
-        flexDirection: "row",
+        justifyContent:"space-between",
         alignItems: "center",
-        backgroundColor: "#1a1a1a"
+        padding:16,
+        backgroundColor:"#212121",
+        position:"sticky",
+        flexDirection:"row"
     }
 })

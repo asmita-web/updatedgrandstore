@@ -130,16 +130,22 @@ export default function Brand({navigation}) {
 
     const backhome =()=>{
         // navigation.navigate('Home');
-        // console.log(props.navigation.goBack())
-        alert("brands")
+        console.log(navigation.navigate('Homescreen'))
+        // alert("brands")
     }
     return (
         <ScrollView>
             <SafeAreaView style={{backgroundColor: "#1a1a1a"}}>
                 <View style={brandcss.headermainbox}>
                     <View style={brandcss.allcategorybox}>
-                        <View style={brandcss.allcategory} onpress={()=>{backhome()}}>
-                            <View><Ionicons style={brandcss.categorytext} name="arrow-back" size={20} color="black" /></View>
+                        <View style={brandcss.allcategory} >
+                            <View>
+                                <Text onPress={()=>{backhome()}}>
+                                <Ionicons style={brandcss.categorytext} name="arrow-back" size={20} color="black" />
+                                </Text>
+                                </View>
+
+                                
                             <View><Text style={brandcss.categorytext}>All Brand</Text></View>
                         </View>
                         <View style={brandcss.allcategory}>

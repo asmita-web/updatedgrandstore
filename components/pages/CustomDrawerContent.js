@@ -10,7 +10,7 @@ export default function CustomDrawerContent(props) {
 
     useEffect(() => {
         console.log("...props", props)
-        // console.log("navigate",navigation.navigate('signin'))
+        console.log("navigate",props.navigation)
     }, [])
 
     // const Loginnavigator=()=>{
@@ -22,6 +22,7 @@ export default function CustomDrawerContent(props) {
 
         <View>
             <View>
+                
                 <View style={customecss.profilebox} >
                     <View style={customecss.profile}><FontAwesome style={customecss.profiletext1} name="user" size={20} color="white" /></View>
                     <View><Text style={customecss.profiletext}>Please Sign in</Text></View>

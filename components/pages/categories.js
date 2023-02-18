@@ -153,7 +153,7 @@ const trendingproduct =[
 ]
 export default function Categories({navigation}) {
     const backhome =()=>{
-        navigation.navigate('Categories')
+        navigation.navigate('Homescreen')
     }
     return (
         <ScrollView>

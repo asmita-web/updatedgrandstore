@@ -6,6 +6,7 @@ import Signin from "../signin";
 import Login from "./login/login";
 import Register from "./login/register/register";
 import HomeScreen from "../homepage";
+import Cart from "../cart";
 
 
 const stack = createStackNavigator();
@@ -33,6 +34,11 @@ export default function Loginnavigator() {
                     headerShown:false
                 }}
                 name="Register" component={Register} />
+                 <stack.Screen 
+                   options={{
+                    headerShown:false
+                }}
+                name="cart" component={Cart} />
             </stack.Navigator>
        
 
