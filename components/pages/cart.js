@@ -29,7 +29,7 @@ const cartproduct = [
     }
 ]
 
-export default function Cart() {
+export default function Cart({navigation}) {
 
     const [qty, setqty] = useState(1)
 
@@ -110,7 +110,7 @@ export default function Cart() {
                             <Text style={cartcss.subtotalprice}>19</Text>
                         </View>
                         <View style={cartcss.checkouttextbox}>
-                            <Pressable style={cartcss.proceedbutton}>
+                            <Pressable style={cartcss.proceedbutton} onPress={()=>{navigation.navigate('proceedpage')}}>
                                 <Entypo name="check" color="#c99742" size={16} />
                                 <Text style={cartcss.proceedtext}>
                                     Proceed to Checkout

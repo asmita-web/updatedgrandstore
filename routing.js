@@ -52,6 +52,8 @@ function Shopnavigator(){
                 headerShown:true
             }}
              name="shopproduct" component={ProductDetails}/>
+            
+
         </stack.Navigator>
     )
 }
