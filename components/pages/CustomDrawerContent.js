@@ -10,28 +10,33 @@ export default function CustomDrawerContent(props) {
 
     useEffect(() => {
         console.log("...props", props)
-        console.log("navigate",props.navigation)
+        console.log("navigate", props.navigation)
     }, [])
 
-    // const Loginnavigator=()=>{
-    //     navigator.navigate('signin')
-    // }
+    const Loginnavigatorpage = () => {
+        props.navigation.navigate('Signin')
+    }
 
     return (
 
 
         <View>
             <View>
-                
-                <View style={customecss.profilebox} >
-                    <View style={customecss.profile}><FontAwesome style={customecss.profiletext1} name="user" size={20} color="white" /></View>
-                    <View><Text style={customecss.profiletext}>Please Sign in</Text></View>
-                </View>
+                <Text style={{backgroundColor:"#ffa500"}} onPress={() => { Loginnavigatorpage() }}>
+                    <View style={customecss.profilebox} >
+
+                        <View style={customecss.profile}><FontAwesome style={customecss.profiletext1} name="user" size={20} color="white" /></View>
+                        <View><Text style={customecss.profiletext}>Please Sign in</Text></View>
+
+
+                    </View>
+                </Text>
+
 
                 <View style={customecss.menu}>
                     <View>
                         <DrawerItemList {...props} >
-                         
+
                         </DrawerItemList>
                     </View>
                     {/* <DrawerContentScrollView {...props}>

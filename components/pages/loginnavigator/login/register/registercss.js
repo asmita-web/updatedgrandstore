@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const registercss = StyleSheet.create({
     inputbox: {
-        padding: 12,
+        padding: 10,
         borderColor: "#575757",
         borderRadius: 5,
         borderWidth: 1,
         width: "100%",
-        color: "#a8a8a8"
+        color: "#a8a8a8",
+        backgroundColor: "#212223",
     },
     sendmessage: {
         backgroundColor: '#212223',
@@ -41,8 +42,10 @@ export const registercss = StyleSheet.create({
     },
     getintouchtext: {
         color: "#c99742",
-        fontSize: 20,
+        fontSize: 22,
         fontFamily: 'Times New Roman,sans-serif',
+        textAlign:"center",
+        fontWeight:600
 
     },
     textinput: {

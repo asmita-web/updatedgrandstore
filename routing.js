@@ -95,9 +95,9 @@ function Sidebar() {
                 options={{
                     title: "Home",
                     // header:()=><Header/>,
-                    drawerIcon: ({ focused }) => (
-                        <Ionicons name='ios-home' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <Ionicons name='ios-home' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',
@@ -122,9 +122,9 @@ function Sidebar() {
                 options={{
                     title:"About Us",
                     // drawerLabel: "About Us",
-                    drawerIcon: ({ focused }) => (
-                        <FontAwesome name='user' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <FontAwesome name='user' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',
@@ -145,9 +145,9 @@ function Sidebar() {
             <Drawer.Screen
                 options={{
                     title: "Shop",
-                    drawerIcon: ({ focused }) => (
-                        <Feather name='file-text' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <Feather name='file-text' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',
@@ -172,9 +172,9 @@ function Sidebar() {
             <Drawer.Screen
                 options={{
                     title: "Wine",
-                    drawerIcon: ({ focused }) => (
-                        <Ionicons name='chatbox-ellipses' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <Ionicons name='chatbox-ellipses' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',
@@ -196,9 +196,9 @@ function Sidebar() {
             <Drawer.Screen
                 options={{
                     drawerLabel: "Trade",
-                    drawerIcon: ({ focused }) => (
-                        <AntDesign name='star' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <AntDesign name='star' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',
@@ -222,9 +222,9 @@ function Sidebar() {
             <Drawer.Screen
                 options={{
                     title: "Offers",
-                    drawerIcon: ({ focused }) => (
-                        <FontAwesome5 name='edit' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <FontAwesome5 name='edit' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',
@@ -248,9 +248,9 @@ function Sidebar() {
             <Drawer.Screen
                 options={{
                     drawerLabel: "Contact",
-                    drawerIcon: ({ focused }) => (
-                        <AntDesign name='infocirlce' size={20} color={focused ? '#dca743' : 'white'} />
-                    ),
+                    // drawerIcon: ({ focused }) => (
+                    //     <AntDesign name='infocirlce' size={20} color={focused ? '#dca743' : 'white'} />
+                    // ),
                     drawerLabelStyle: {
                         color: "white",
                         fontFamily: 'Times New Roman,sans-serif',

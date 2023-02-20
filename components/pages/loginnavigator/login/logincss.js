@@ -32,8 +32,8 @@ sendmessagetext: {
 
 },
 inputbox: {
-    backgroundColor:"white",
-    padding: 12,
+    // backgroundColor:"white",
+    padding: 10,
     borderColor: "white",
     borderRadius:3,
     borderWidth: 1,
@@ -75,7 +75,7 @@ lostpasswordboxtext:{
     fontSize: 15,
     color: "#c99742",
     textAlign:"center",
-    lineHeight: 43,
+    lineHeight:30,
     
 },
 lostyouracconttext:{
