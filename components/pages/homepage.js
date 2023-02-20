@@ -15,46 +15,46 @@ const categories = [
     {   
         id:2,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Bitters"
     },
     {   
         id:3,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Brandy"
     },
     {   id:4,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Champagne"
     },
     {
         id:5,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Whisky"
     },
     {
         id:6,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Ciders"
     },
     {
         id:7,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Cognac"
     },
     {
         id:8,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Gin"
     },
     {
         id:9,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "BeersLiqueur"
     },
     {
         id:10,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Mixer"
     },
 ]
 
@@ -141,7 +141,7 @@ export default function HomeScreen({navigation}) {
                     <View>
                         <View style={Homecss.categoriesBox}>
                             <Text style={Homecss.categoryText}>Categories</Text>
-                            <Pressable
+                            <Pressable onPress={()=>{navigation.navigate('Categories')}}
                                 style={Homecss.viewallbox}>
                                 <Text style={Homecss.viewalltext}>View All</Text>
                                 <AntDesign name="right" size={10} color="white" />

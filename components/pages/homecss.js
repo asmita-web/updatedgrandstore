@@ -54,7 +54,7 @@ export const Homecss = StyleSheet.create({
 
         alignItems: "flex-start",
         justifyContent: "flex-start",
-        gap: 5
+        gap:20
     },
     categorybox: {
         justifyContent: "center",

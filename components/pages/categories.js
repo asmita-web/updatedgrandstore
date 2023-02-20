@@ -15,65 +15,49 @@ const categories = [
         imgurl: require('../../assets/whisky.jpg'),
         title: "Beers"
     },
-    {
+    {   
         id:2,
-        imgurl: require('../../assets/2.jpg'),
-        title: "Beers"
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Bitters"
     },
-    {
+    {   
         id:3,
-        imgurl: require('../../assets/3.jpg'),
-        title: "Beers"
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Brandy"
     },
-    {
-        id:4,
-        imgurl: require('../../assets/4.jpg'),
-        title: "Beers"
+    {   id:4,
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Champagne"
     },
     {
         id:5,
-        imgurl: require('../../assets/5.jpg'),
-        title: "Beers"
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Whisky"
     },
     {
         id:6,
-        imgurl: require('../../assets/redwine.jpg'),
-        title: "Beers"
+        imgurl: require('../../assets/whisky.jpg'),
+        title: "Ciders"
     },
     {
         id:7,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Cognac"
     },
     {
         id:8,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Gin"
     },
     {
         id:9,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "BeersLiqueur"
     },
     {
         id:10,
         imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
-    },
-    {
-        id:11,
-        imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
-    },
-    {
-        id:12,
-        imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
-    },
-    {
-        id:13,
-        imgurl: require('../../assets/whisky.jpg'),
-        title: "Beers"
+        title: "Mixer"
     },
 ]
 

@@ -1,11 +1,15 @@
-import React,{useState,useRef} from "react";
-import { View, Text, ScrollView, SafeAreaView, TextInput, Pressable } from "react-native";
+import React,{useState,useRef,useEffect} from "react";
+import { View, Text, ScrollView, SafeAreaView, TextInput, Pressable,Alert } from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { registercss } from "./registercss";
 import { logincss } from "../logincss";
 import { http } from "../../../../../Restservice";
+import axios from "axios";
+import AwesomeAlert from 'react-native-awesome-alerts';
+
+
 
 const data = [
   {
@@ -26,28 +30,48 @@ const data = [
   },
 
 ]
+
+let password 
+let confirmpassword
 const Register = ({navigation}) => {
+
+  useEffect(()=>{
+brand()
+  },[])
   const [title, settitle]=useState("")
+  const [showAlert,setshowalert]=useState(false)
 const [customer,setcustomer]=useState({
   fname:"",
   lname:"",
   email:"",
   phone:"",
-  password:"",
-  confirmpassword:""
 
 })
 
+const showalert = () => {
+  setshowalert(true)
 
+};
 
-const handlechange = (e)=>{
+const hideAlert = () => {
+  setshowalert(false)
+};
+
+const handlechange = name=>(e)=>{
    e.preventDefault()
-   setcustomer({[e.target.name]: e.target.value
-   })
+   setcustomer({...customer,[name]: e.target.value})
    console.log(customer)
   //  console.log(customer)
 
    
+}
+const passwordhandle =(e)=>{
+  e.preventDefault()
+  password = e.target.value
+}
+const passwordconfirm =(e)=>{
+  e.preventDefault()
+  confirmpassword = e.target.value
 }
 const handlechangetitle =(e)=>{
   e.preventDefault()
@@ -55,7 +79,60 @@ const handlechangetitle =(e)=>{
    settitle(titleC)
   //  console.log(title)
 }
+
+const brand =()=>{
+  axios.get(http+'/brand')
+  .then((response)=>{
+      console.log(response.data)
+      // Alert.alert('', 'Register Successfully', [
+  
+      //   {text: 'OK', onPress: () => console.log('OK Pressed')},
+      // ]);
+       navigation.navigate('Login')
+  })
+  .catch((error)=>{
+    Alert.alert('', 'Error', [
+  
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ]);
+   console.log(error)
+  })
+}
 const registerdata=()=>{
+
+  const {fname,lname,email,phone} = customer;
+
+    
+  let customerdata ={
+    "title":title,
+    "fname":fname,
+    "lname":lname,
+    "email":email,
+    "phone":phone,
+    "password":password
+
+  }
+        if(password == confirmpassword){
+           btoa(customerdata.password)
+          axios.post(http+'/customer',customerdata)
+          .then((response)=>{
+              console.log(response)
+              Alert.alert('', 'Register Successfully', [
+          
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
+              ]);
+               navigation.navigate('Login')
+          })
+          .catch((error)=>{
+            Alert.alert('', 'Error', [
+          
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ]);
+           console.log(error)
+          })
+        }
+       
+
    console.log(title)
    console.log(customer)
 }
@@ -89,7 +166,7 @@ const registerdata=()=>{
                   {/* <input type="text" required value={customer.fname} placeholder="First Name" onPress={handlechange} 
                   style={registercss.inputbox}/> */}
 
-                  <TextInput name={fname} onChange={handlechange} value={customer.fname} required style={registercss.inputbox}
+                  <TextInput name="fname" onChange={handlechange('fname')} value={customer.fname} required style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
                 <View>
@@ -97,13 +174,13 @@ const registerdata=()=>{
                   {/* <input type="text" required value={customer.lname} placeholder="Last Name"
                    onPress={handlechange} style={registercss.inputbox}/> */}
 
-                  <TextInput name={lname} onChange={handlechange} value={customer.lname} required style={registercss.inputbox}
+                  <TextInput name="lname" onChange={handlechange('lname')} value={customer.lname} required style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
                 <View>
                   <Text style={registercss.labelcolor}>Email Id</Text>
                   {/* <input type="email" required value={customer.email} placeholder="Email" onPress={handlechange} style={registercss.inputbox}/> */}
-                  <TextInput name={email} value={customer.email} onChange={handlechange} required style={registercss.inputbox}
+                  <TextInput name="email" value={customer.email} onChange={handlechange('email')} required style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
                 <View>
@@ -111,7 +188,7 @@ const registerdata=()=>{
                     Phone No
                   </Text>
                   {/* <input type="number" required value={customer.phone} placeholder="Phone" onPress={handlechange} style={registercss.inputbox}/> */}
-                  <TextInput name={phone} value={customer.phone} onChange={handlechange} required style={registercss.inputbox}
+                  <TextInput name="phone" value={customer.phone} onChange={handlechange('phone')} required style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
 
@@ -121,7 +198,7 @@ const registerdata=()=>{
                   </Text>
                   {/* <input type="password" required placeholder="Password" value={customer.password}  onPress={handlechange} style={registercss.inputbox}/> */}
 
-                  <TextInput name={password} value={customer.password} onChange={handlechange} required placeholder="Password" style={registercss.inputbox}
+                  <TextInput secureTextEntry={true} value={password} onChange={passwordhandle} required placeholder="Password" style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
 
@@ -131,7 +208,7 @@ const registerdata=()=>{
                   </Text>
                   {/* <input type="password" required placeholder="Confirm Password" value={customer.confirm}  onPress={handlechange} style={registercss.inputbox}/> */}
 
-                  <TextInput name={confirmpassword} value={customer.confirmpassword} onChange={handlechange} required placeholder="Confirm Password" style={registercss.inputbox}
+                  <TextInput secureTextEntry={true}  value={confirmpassword} onChange={passwordconfirm} required placeholder="Confirm Password" style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
 

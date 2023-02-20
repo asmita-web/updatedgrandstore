@@ -29,6 +29,8 @@ import Login from './components/pages/loginnavigator/login/login';
 import Register from './components/pages/loginnavigator/login/register/register';
 import Header from './components/header';
 import Loginnavigator from './components/pages/loginnavigator/loginnavigator';
+import Headerleft from './components/pages/headerleft';
+import Cartdata from './components/pages/cartdata';
 
 
 
@@ -39,19 +41,177 @@ function Shopnavigator(){
     return(
         <stack.Navigator initialRouteName="shoppage">
             <stack.Screen
-            options={{
-                title:"Shop",
+           options={({ navigation, route }) => ({
+            title:"Shop",
                 headerShown:true,
-               
-            }}
+                headerLeft:()=>(
+                    <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+
+                ),
+                headerStyle:{
+                    backgroundColor:"#2b2b2b",
+                    fontFamily: 'Times New Roman,sans-serif',
+                    
+                },
+                headerTintColor: '#a8a8a8',
+
+          })}
+           
             // canGoBack
              name="shoppage" component={shop}/>
             <stack.Screen
-            options={{
+            options={({ navigation, route }) => ({
                 title:"Product",
-                headerShown:true
-            }}
+                    headerShown:true,
+                    headerLeft:()=>(
+                        <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+    
+                    ),
+                    headerStyle:{
+                        backgroundColor:"#2b2b2b",
+                        fontFamily: 'Times New Roman,sans-serif',
+                        
+                    },
+                    headerTintColor: '#a8a8a8',
+                    headerRight:(props)=><Cartdata {...props}/>
+              })}
              name="shopproduct" component={ProductDetails}/>
+            
+
+        </stack.Navigator>
+    )
+}
+
+function Tradenavigator(){
+    return(
+        <stack.Navigator initialRouteName="tradepaget">
+            <stack.Screen
+           options={({ navigation, route }) => ({
+            title:"Tradehome",
+                headerShown:false,
+                headerLeft:()=>(
+                    <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+
+                ),
+                headerStyle:{
+                    backgroundColor:"#2b2b2b",
+                    fontFamily: 'Times New Roman,sans-serif',
+                    
+                },
+                headerTintColor: '#a8a8a8',
+
+          })}
+           
+            // canGoBack
+             name="tradehome" component={HomeScreen}/>
+            <stack.Screen
+            options={({ navigation, route }) => ({
+                title:"Trade",
+                    headerShown:true,
+                    headerLeft:()=>(
+                        <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+    
+                    ),
+                    headerStyle:{
+                        backgroundColor:"#2b2b2b",
+                        fontFamily: 'Times New Roman,sans-serif',
+                        
+                    },
+                    headerTintColor: '#a8a8a8',
+    
+              })}
+             name="tradepaget" component={Trade}/>
+            
+
+        </stack.Navigator>
+    )
+}
+
+function Offernavigator(){
+    return(
+        <stack.Navigator initialRouteName="offerpage">
+            <stack.Screen
+           options={({ navigation, route }) => ({
+            title:"Offerhome",
+                headerShown:false,
+                headerLeft:()=>(
+                    <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+
+                ),
+                headerStyle:{
+                    backgroundColor:"#2b2b2b",
+                    fontFamily: 'Times New Roman,sans-serif',
+                    
+                },
+                headerTintColor: '#a8a8a8',
+
+          })}
+           
+            // canGoBack
+             name="offerhome" component={HomeScreen}/>
+            <stack.Screen
+            options={({ navigation, route }) => ({
+                title:"Offer",
+                    headerShown:true,
+                    headerLeft:()=>(
+                        <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+    
+                    ),
+                    headerStyle:{
+                        backgroundColor:"#2b2b2b",
+                        fontFamily: 'Times New Roman,sans-serif',
+                        
+                    },
+                    headerTintColor: '#a8a8a8',
+                    headerRight:(props)=><Cartdata {...props}/>
+    
+              })}
+             name="offerpage" component={Offer}/>
+            
+
+        </stack.Navigator>
+    )
+}
+
+function Contactnavigator(){
+    return(
+        <stack.Navigator initialRouteName="contactpage">
+            <stack.Screen
+           options={({ navigation, route }) => ({
+            title:"Contacthome",
+                headerShown:false,
+                headerLeft:()=>(
+                    <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+
+                ),
+                headerStyle:{
+                    backgroundColor:"#2b2b2b",
+                    fontFamily: 'Times New Roman,sans-serif',
+                    
+                },
+                headerTintColor: '#a8a8a8',
+
+          })}
+           
+            // canGoBack
+             name="contacthome" component={HomeScreen}/>
+            <stack.Screen
+            options={({ navigation, route }) => ({
+                title:"Contact Us",
+                    headerShown:true,
+                    headerLeft:()=>(
+                        <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+    
+                    ),
+                    headerStyle:{
+                        backgroundColor:"#2b2b2b",
+                        fontFamily: 'Times New Roman,sans-serif',
+                        
+                    },
+                    headerTintColor: '#a8a8a8',
+    
+              })}
+             name="contactpage" component={Contact}/>
             
 
         </stack.Navigator>
@@ -60,20 +220,58 @@ function Shopnavigator(){
 
 function Winenavigator(){
     return(
-        <stack.Navigator
+        <stack.Navigator 
+       
         
          initialRouteName="winepage">
             <stack.Screen 
-             options={{
-                title:"Wine",
-                headerShown:true
-            }}
+
+options={({ navigation, route }) => ({
+    title:"Wine",
+        headerShown:true,
+        headerLeft:()=>(
+            <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+
+        ),
+        headerStyle:{
+            backgroundColor:"#2b2b2b",
+            fontFamily: 'Times New Roman,sans-serif',
+            
+        },
+        headerTintColor: '#a8a8a8',
+        headerRight:(props)=><Cartdata {...props}/>
+
+  })}
+             
              name="winepage" component={Wine}/>
-            <stack.Screen 
+            {/* <stack.Screen 
              options={{
                 title:"Product",
-                headerShown:true
+                headerShown:true,
+                headerLeft:()=>(
+                    <Ionicons onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="black" />
+
+                )
             }}
+
+            name="winehome" component={HomeScreen}/> */}
+            <stack.Screen 
+
+options={({ navigation, route }) => ({
+    title:"Product",
+        headerShown:true,
+        headerLeft:()=>(
+            <Ionicons style={{paddingLeft:10}} onPress={() =>navigation.goBack()} name="arrow-back" size={20} color="white" />
+
+        ),
+        headerStyle:{
+            backgroundColor:"#2b2b2b",
+            fontFamily: 'Times New Roman,sans-serif',
+            
+        },
+        headerTintColor: '#a8a8a8',
+
+  })}
              name="wineproduct" component={ProductDetails}/>
         </stack.Navigator>
     )
@@ -187,9 +385,10 @@ function Sidebar() {
                     },
                        
                     headerStyle:{
-                        // backgroundColor:"#212121",
+                        backgroundColor:"#212121",
                         color:"#a8a8a8"
                     },
+                    
                     headerShown:false
                 }}
                 name="Wine" component={Winenavigator} />
@@ -216,9 +415,10 @@ function Sidebar() {
                         // backgroundColor:"#212121",
                         color:"#a8a8a8"
                     },
+                    headerShown:false
 
                 }}
-                name="Trade" component={Trade} />
+                name="Trade" component={Tradenavigator} />
             <Drawer.Screen
                 options={{
                     title: "Offers",
@@ -242,9 +442,10 @@ function Sidebar() {
                         backgroundColor:"#212121",
                         color:"#a8a8a8"
                     },
+                    headerShown:false
 
                 }}
-                name="Offer" component={Offer} />
+                name="Offer" component={Offernavigator} />
             <Drawer.Screen
                 options={{
                     drawerLabel: "Contact",
@@ -266,9 +467,10 @@ function Sidebar() {
                         // backgroundColor:"#212121",
                         color:"#a8a8a8"
                     },
+                    headerShown:false
 
                 }}
-                name="PrivacyPolicy" component={Contact} />
+                name="PrivacyPolicy" component={Contactnavigator} />
             {/* <Drawer.Screen
                 options={{
                     drawerLabel: "FAQ's",
@@ -311,7 +513,7 @@ function Routing() {
                             backgroundColor: '#212121',
 
                         },
-
+                        
                         headerTintColor: 'black',
                         headerTitleStyle: {
                             fontWeight: 700,
@@ -324,6 +526,11 @@ function Routing() {
                         tabBarIcon: ({ focused }) => (
                             <Feather name="home" color={focused ? '#dca743' : 'white'} size={20} />
                         ),
+                        tabBarLabelStyle:{
+                            color:"#a8a8a8",
+                            fontFamily: 'Times New Roman,sans-serif',
+
+                        }
                     }}
                     component={Sidebar} />
 
@@ -341,7 +548,12 @@ function Routing() {
                         headerShown: false,
                         tabBarIcon: ({ focused }) => (
                             <AntDesign name="appstore1" color={focused ? '#dca743' : 'white'} size={20} />
-                        )
+                        ),
+                        tabBarLabelStyle:{
+                            color:"#a8a8a8",
+                            fontFamily: 'Times New Roman,sans-serif',
+
+                        }
 
                     }}
                     component={Categories} />
@@ -369,7 +581,11 @@ function Routing() {
                         tabBarIcon: ({ focused }) => (
                             <FontAwesome5 name="wine-glass" color={focused ? '#dca743' : 'white'} size={20} />
                         ),
+                        tabBarLabelStyle:{
+                            color:"#a8a8a8",
+                            fontFamily: 'Times New Roman,sans-serif',
 
+                        }
 
                     }}
                     component={Brand} />
@@ -387,6 +603,12 @@ function Routing() {
                         tabBarIcon: ({ focused }) => (
                             <Feather name="file-text" color={focused ? '#dca743' : 'white'} size={20} />
                         ),
+                        tabBarLabelStyle:{
+                            color:"#a8a8a8",
+                            fontFamily: 'Times New Roman,sans-serif',
+
+                        },
+                       
 
                     }}
                     component={Signin} />
@@ -405,6 +627,12 @@ function Routing() {
                         tabBarIcon: ({ focused }) => (
                             <FontAwesome name="search" color={focused ? '#dca743' : 'white'} size={20} />
                         ),
+
+                        tabBarLabelStyle:{
+                            color:"#a8a8a8",
+                            fontFamily: 'Times New Roman,sans-serif',
+
+                        }
 
                     }}
                     component={Cart} />
