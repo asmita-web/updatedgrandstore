@@ -136,11 +136,16 @@ export const Homecss = StyleSheet.create({
         borderRadius: 14,
         paddingTop: 5,
         backgroundColor: "#151515",
-        fontSize: 10,
         paddingRight: 10,
         paddingLeft: 10,
         borderColor: "grey",
         borderWidth: 1
+    },
+    sparkingitemtext:{
+        fontSize: 10,
+        color: "#a8a8a8",
+        fontFamily: 'Times New Roman,sans-serif',
+
     },
     sparkingboxadjust: {
         paddingBottom: 15

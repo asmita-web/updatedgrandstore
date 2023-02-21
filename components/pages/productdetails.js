@@ -33,7 +33,7 @@ const options = [
     }
 ]
 
-export default function ProductDetails() {
+export default function ProductDetails({navigation}) {
     return (
 
         <ScrollView style={{ backgroundColor: "#1c1c1c", }}>
@@ -67,7 +67,7 @@ export default function ProductDetails() {
                                         {/* <Dropdown/> */}
                                     </View>
                                     <View>
-                                        <Pressable style={productdcss.addtocartbox}>
+                                        <Pressable style={productdcss.addtocartbox} onPress={()=>{navigation.navigate('cart')}}>
                                             <Entypo name="shopping-cart" color="#dca743" size={15} />
                                             <Text style={productdcss.addtocarttext}>ADD TO CART</Text>
                                         </Pressable>

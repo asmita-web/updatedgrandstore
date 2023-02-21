@@ -237,7 +237,7 @@ export default function HomeScreen({navigation}) {
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
                                                 </View>
-                                                <View >
+                                                <View>
                                                     <Text style={Homecss.bestsellertext}>
                                                     {item.title}
                                                     </Text>
@@ -275,14 +275,18 @@ export default function HomeScreen({navigation}) {
                         <LinearGradient colors= {['rgba(0,0,0,0.00)','rgb(33,33,33)','rgb(33,33,33)','rgb(33,33,33)']} style={{paddingTop:30,paddingBottom:20}}>
                         <View style={Homecss.sparkingmainbox}>
                             <View style={[Homecss.sparklingbox, Homecss.sparkingboxadjust]}>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
+                                <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+                                <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+
+                                <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+
+                               
                             </View>
                             <View style={Homecss.sparklingbox}>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
                             </View>
                         </View>
                         </LinearGradient>

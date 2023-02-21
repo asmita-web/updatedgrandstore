@@ -1,10 +1,12 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { View, Text, Button, SafeAreaView, ScrollView, Image, Pressable, ImageBackground } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { Homecss } from "./homecss";
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from "../header";
+import axios from "axios";
+import { http } from "../../Restservice";
 
 const categories = [
     {
@@ -107,6 +109,33 @@ const bestseller = [
 
 export default function HomeScreen({navigation}) {
     const [data, setdata] = useState(true)
+    const [categoryall,setcategoryall]=useState([])
+    useEffect(()=>{
+        getallcategory()
+    },[])
+    const getallcategory=()=>{
+        axios.get(http+'/category/limit/10')
+        .then((response)=>{
+           setcategoryall(response.data)
+           console.log("categoryall",response)
+        })
+        .catch((err)=>{
+            console.log("category",err)
+        })
+    }
+
+    // const getemployee=()=>{
+    //     // alert("data")
+    
+    //     axios.get('/employee')
+    //     .then((response)=>{
+    //         setData([...response.data])
+    //      console.log(response)
+    //     }).catch((error)=>{
+    //         console.error(error)
+    //     })
+    
+    //  }
 
     const example =()=>{
         alert("hello")
@@ -119,7 +148,7 @@ export default function HomeScreen({navigation}) {
         <ScrollView stickyHeaderIndices={[1]}>
             <SafeAreaView  style={Homecss.stickyhead}>
 
-                <View style={Homecss.header}>
+                {/* <View style={Homecss.header}>
                     <View>
                         <Text onPress={() => {opendrawer()}}>
                         <FontAwesome5 name="bars" size={13} color="white" />
@@ -132,7 +161,7 @@ export default function HomeScreen({navigation}) {
                     <View>
                         <FontAwesome5 name="shopping-cart" size={13} color="white" />
                     </View>
-                </View>
+                </View> */}
                 {/* <Header/> */}
                 <View style={{ padding: 13 }}>
                     <View style={{ width: "100%", height: 160 }}>
@@ -150,15 +179,15 @@ export default function HomeScreen({navigation}) {
                         </View>
                         <View style={Homecss.categorymainbox}>
                             {
-                                categories.map((items,index) => (
+                                categoryall.map((items,index) => (
                                     <View key={index} style={Homecss.categorybox}>
 
                                         <View style={Homecss.imagebox}>
-                                            <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={{ uri: items.imgurl }} />
+                                            <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={require('../../assets/whisky.jpg')} />
                                         </View>
                                         <View>
                                             <Text style={Homecss.categoryboxtext}>
-                                                {items.title}</Text>
+                                                {items.category}</Text>
                                         </View>
 
                                     </View>
@@ -175,7 +204,7 @@ export default function HomeScreen({navigation}) {
                         <View>
                             <View style={Homecss.categoriesBox}>
                                 <Text style={Homecss.categoryText}>Best Sellers</Text>
-                                <Pressable
+                                <Pressable onPress={()=>{navigation.navigate('Search')}}
                                     style={Homecss.viewallbox}>
                                     <Text style={Homecss.viewalltext}>View All</Text>
                                     <AntDesign name="right" size={10} color="white" />
@@ -185,7 +214,7 @@ export default function HomeScreen({navigation}) {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index} style={Homecss.bestsellermainbox}>
+                                            <View key={index} style={Homecss.bestsellermainbox} onclick={()=>{navigation.navigate('productd')}}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
@@ -222,7 +251,7 @@ export default function HomeScreen({navigation}) {
                         <View>
                             <View style={Homecss.categoriesBox}>
                                 <Text style={Homecss.categoryText}>Trending Products</Text>
-                                <Pressable
+                                <Pressable onPress={()=>{navigation.navigate('Search')}}
                                     style={Homecss.viewallbox}>
                                     <Text style={Homecss.viewalltext}>View All</Text>
                                     <AntDesign name="right" size={10} color="white" />
@@ -232,7 +261,7 @@ export default function HomeScreen({navigation}) {
                                 <View style={Homecss.bestsellerouterbox}>
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index} style={Homecss.bestsellermainbox}>
+                                            <View key={index} style={Homecss.bestsellermainbox} onclick={()=>{navigation.navigate('productd')}}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 
@@ -275,14 +304,14 @@ export default function HomeScreen({navigation}) {
                         <LinearGradient colors= {['rgba(0,0,0,0.00)','rgb(33,33,33)','rgb(33,33,33)','rgb(33,33,33)']} style={{paddingTop:30,paddingBottom:20}}>
                         <View style={Homecss.sparkingmainbox}>
                             <View style={[Homecss.sparklingbox, Homecss.sparkingboxadjust]}>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
                             </View>
                             <View style={Homecss.sparklingbox}>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
-                                <View style={Homecss.sparklingitem}>Sparkling Wine</View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
+                            <View style={Homecss.sparklingitem}><Text style={Homecss.sparkingitemtext}>Sparkling Wine</Text></View>
                             </View>
                         </View>
                         </LinearGradient>
@@ -320,17 +349,17 @@ export default function HomeScreen({navigation}) {
                 <View style={{ padding: 13,backgroundColor:"#1a1a1a"}}>
                             <View style={Homecss.categoriesBox}>
                                 <Text style={Homecss.categoryText}>Featured Products</Text>
-                                <Pressable
+                                <Pressable onPress={()=>{navigation.navigate('Search')}}
                                     style={Homecss.viewallbox}>
                                     <Text style={Homecss.viewalltext}>View All</Text>
                                     <AntDesign name="right" size={10} color="white" />
                                 </Pressable>
                             </View>
                             <ScrollView horizontal={true}>
-                                <View style={Homecss.bestsellerouterbox}>
+                                <View style={Homecss.bestsellerouterbox} >
                                     {
                                         bestseller.map((item,index) => (
-                                            <View key={index} style={Homecss.bestsellermainbox}>
+                                            <View key={index} style={Homecss.bestsellermainbox} onclick={()=>{navigation.navigate('productd')}}>
                                                 <View style={Homecss.bestsellerimagebox}>
                                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: item.imgurl }} />
 

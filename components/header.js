@@ -2,17 +2,22 @@ import React, { useEffect } from "react";
 import { StyleSheet, View, Text, Image } from "react-native";
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
-export default function Header() {
+export default function Header(props) {
    
 //   const {opendrawer} = props;
 
     useEffect(() => {
-        console.log("navigation")
+        console.log("navigation...",props)
     }, [])
+
+    const opendrawer=()=>{
+        props.navigation.openDrawer()
+    }
     return (
         <View style={style.container}>
+            
             <View>
-                <Text >
+                <Text onPress={()=>{opendrawer()}}>
                     <FontAwesome5 name="bars" size={13} color="white" />
 
                 </Text>
@@ -20,7 +25,7 @@ export default function Header() {
             <View style={{ width: "15%", height: 50 }}>
                 <Image style={{ width: "100%", height: "100%" }} source={require('../assets/logo.png')} />
             </View>
-            <View>
+            <View onClick={()=>{props.navigation.navigate('cart')}}>
                 <FontAwesome5 name="shopping-cart" size={13} color="white" />
 
             </View>

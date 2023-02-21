@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, ScrollView, SafeAreaView, Image,ImageBackground } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -6,6 +6,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { categorycss } from "./categorycss";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { LinearGradient } from 'expo-linear-gradient';
+import axios from "axios";
+import { http } from "../../Restservice";
+import { useState } from "react";
 
 
 
@@ -136,6 +139,22 @@ const trendingproduct =[
     },
 ]
 export default function Categories({navigation}) {
+     const [categoryall,setcategoryall]=useState([])
+    useEffect(()=>{
+        getallcategory()
+    },[])
+
+    const getallcategory=()=>{
+        axios.get(http+'/category')
+        .then((response)=>{
+           setcategoryall(response.data)
+           console.log(categoryall)
+        })
+        .catch((err)=>{
+            console.log("category",err)
+        })
+    }
+
     const backhome =()=>{
         navigation.navigate('Homescreen')
     }
@@ -164,14 +183,14 @@ export default function Categories({navigation}) {
                 <View style={{ padding: 20, backgroundColor: "#1a1a1a" }}>
                     <View style={categorycss.categorymainbox}>
                         {
-                            categories.map((items,index) => (
+                            categoryall.map((items,index) => (
                                 <View key={index} style={categorycss.categorybox}>
 
                                     <View style={categorycss.imagebox}>
-                                        <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={{ uri: items.imgurl }} />
+                                        <Image style={{ width: "100%", resizeMode: "cover", height: "100%", borderRadius: 50 }} source={require('../../assets//whisky.jpg')} />
                                     </View>
                                     <View>
-                                        <Text style={categorycss.categoryboxtext}>{items.title}</Text>
+                                        <Text style={categorycss.categoryboxtext}>{items.category}</Text>
                                     </View>
 
                                 </View>

@@ -36,7 +36,7 @@ let confirmpassword
 const Register = ({navigation}) => {
 
   useEffect(()=>{
-brand()
+// brand()
   },[])
   const [title, settitle]=useState("")
   const [showAlert,setshowalert]=useState(false)
@@ -88,7 +88,6 @@ const brand =()=>{
   
       //   {text: 'OK', onPress: () => console.log('OK Pressed')},
       // ]);
-       navigation.navigate('Login')
   })
   .catch((error)=>{
     Alert.alert('', 'Error', [
@@ -102,35 +101,44 @@ const registerdata=()=>{
 
   const {fname,lname,email,phone} = customer;
 
-    
-  let customerdata ={
-    "title":title,
-    "fname":fname,
-    "lname":lname,
-    "email":email,
-    "phone":phone,
-    "password":password
-
-  }
-        if(password == confirmpassword){
-           btoa(customerdata.password)
-          axios.post(http+'/customer',customerdata)
-          .then((response)=>{
-              console.log(response)
-              Alert.alert('', 'Register Successfully', [
-          
-                {text: 'OK', onPress: () => console.log('OK Pressed')},
-              ]);
-               navigation.navigate('Login')
-          })
-          .catch((error)=>{
-            Alert.alert('', 'Error', [
-          
-              {text: 'OK', onPress: () => console.log('OK Pressed')},
-            ]);
-           console.log(error)
-          })
+  let newword = "hello"
+  // let data = window.btoa(newword)
+  // console.log("encode",data)
+  let newpass = window.btoa(password)
+    console.log(password)
+  let cpass = window.btoa(confirmpassword)
+      if(newpass != cpass){
+       Alert.alert('Password Does Not Match')
+      }
+      else{
+        let customerdata ={
+          "title":title,
+          "fname":fname,
+          "lname":lname,
+          "email":email,
+          "phone":phone,
+          "password":newpass
+      
         }
+            axios.post(http+'/customer',customerdata)
+                .then((response)=>{
+                    console.log(response)
+                    Alert.alert('', 'Register Successfully', [
+                
+                      {text: 'OK', onPress: () => console.log('OK Pressed')},
+                    ]);
+                     navigation.navigate('Login')
+                })
+                .catch((error)=>{
+                  Alert.alert('', 'Error', [
+                
+                    {text: 'OK', onPress: () => console.log('OK Pressed')},
+                  ]);
+                  alert("something went wrong")
+                 console.log("error",error)
+                })
+      }
+ 
        
 
    console.log(title)
@@ -198,7 +206,7 @@ const registerdata=()=>{
                   </Text>
                   {/* <input type="password" required placeholder="Password" value={customer.password}  onPress={handlechange} style={registercss.inputbox}/> */}
 
-                  <TextInput secureTextEntry={true} value={password} onChange={passwordhandle} required placeholder="Password" style={registercss.inputbox}
+                  <TextInput secureTextEntry={true} value={password} onChange={passwordhandle} required placeholder="" style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
 
@@ -208,7 +216,7 @@ const registerdata=()=>{
                   </Text>
                   {/* <input type="password" required placeholder="Confirm Password" value={customer.confirm}  onPress={handlechange} style={registercss.inputbox}/> */}
 
-                  <TextInput secureTextEntry={true}  value={confirmpassword} onChange={passwordconfirm} required placeholder="Confirm Password" style={registercss.inputbox}
+                  <TextInput secureTextEntry={true}  value={confirmpassword} onChange={passwordconfirm} required placeholder="" style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
 
