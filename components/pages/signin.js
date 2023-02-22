@@ -29,11 +29,21 @@ export default function Signin({ navigation }) {
                     <View style={profilecss.containerinnerbox}>
                         <View style={profilecss.walletbox}>
                             <View style={profilecss.walletetext}><Entypo name="wallet" size={15} color="white" /></View>
-                            <View style={profilecss.walletetext}>Wallet</View>
+                            <View style={profilecss.walletetext}>
+                                <Text style={profilecss.walletetext}>
+                                Wallet
+                                </Text>
+                               
+                                </View>
                         </View>
                         <View style={profilecss.walletbox}>
                             <View style={profilecss.walletetext}><AntDesign name="heart" size={15} color="white" /></View>
-                            <View style={profilecss.walletetext}>Wishlist</View>
+                            <View style={profilecss.walletetext}>
+                                <Text style={profilecss.walletetext}>
+                                Wishlist
+                                </Text>
+                                
+                                </View>
                         </View>
 
 
@@ -41,11 +51,20 @@ export default function Signin({ navigation }) {
                     <View style={profilecss.containerinnerbox}>
                         <View style={profilecss.walletbox}>
                             <View style={profilecss.walletetext}><Ionicons name="gift" size={15} color="white" /></View>
-                            <View style={profilecss.walletetext}>Coupons</View>
+                            <View style={profilecss.walletetext}>
+                                <Text style={profilecss.walletetext}>
+                                Coupons
+                                </Text>
+                               
+                                </View>
                         </View>
                         <View style={profilecss.walletbox}>
                             <View style={profilecss.walletetext}><Fontisto name="headphone" size={15} color="white" /></View>
-                            <View style={profilecss.walletetext}>Help Center</View>
+                            <View style={profilecss.walletetext}>
+                                <Text style={profilecss.walletetext}>
+                                Help Center
+                                </Text>
+                               </View>
                         </View>
                     </View>
 

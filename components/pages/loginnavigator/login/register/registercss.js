@@ -111,4 +111,5 @@ export const registercss = StyleSheet.create({
         borderWidth:1,
         borderColor:"#4f4f4f"
     },
+  
 })

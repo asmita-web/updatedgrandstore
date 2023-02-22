@@ -1,14 +1,29 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { View, Image, ScrollView, SafeAreaView, Text, Pressable, TextInput } from "react-native";
 import { logincss } from "./logincss";
 import { profilecss } from "../../signincss";
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { http } from "../../../../Restservice";
+import axios from "axios";
 
 export default function Login({navigation}) {
-    // const Goregister = ()=>{
-    //     alert('register',navigator.naviagte('Register'))
-    //     navigator.navigate('Register')
-    // }
+    const [logindata, setlogin]=useState({
+      email:"",
+      password:""
+    })
+
+    
+    useEffect(()=>{
+       
+    },[])
+
+    const handlechange =()=>{
+        
+    }
+    const login =()=>{
+
+        axios.get(http+'/login')
+    }
     return (
 
         <ScrollView style={{ backgroundColor: "#1c1c1c", }}>

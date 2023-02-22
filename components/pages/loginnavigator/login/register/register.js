@@ -1,5 +1,5 @@
-import React,{useState,useRef,useEffect} from "react";
-import { View, Text, ScrollView, SafeAreaView, TextInput, Pressable,Alert } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+import { View, Text, ScrollView, SafeAreaView, TextInput, Pressable, Alert } from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -7,9 +7,10 @@ import { registercss } from "./registercss";
 import { logincss } from "../logincss";
 import { http } from "../../../../../Restservice";
 import axios from "axios";
-import SweetAlert from "react-native-sweet-alert";
+// import SweetAlert from "react-native-sweet-alert";
 // import AwesomeAlert from 'react-native-awesome-alerts';
-
+import Swal from "sweetalert2";
+import './register.css'
 
 
 const data = [
@@ -32,133 +33,147 @@ const data = [
 
 ]
 
-let password 
+let password
 let confirmpassword
-const Register = ({navigation}) => {
+const Register = ({ navigation }) => {
 
-  useEffect(()=>{
-// brand()
-  },[])
-  const [title, settitle]=useState("")
-  const [showAlert,setshowalert]=useState(false)
-const [customer,setcustomer]=useState({
-  fname:"",
-  lname:"",
-  email:"",
-  phone:"",
+  useEffect(() => {
+    // brand()
+  }, [])
+  const [title, settitle] = useState("")
+  const [showAlert, setshowalert] = useState(false)
+  const [customer, setcustomer] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    phone: "",
 
-})
+  })
 
-const showalert = () => {
-  setshowalert(true)
+  // const showalert = () => {
+  //   setshowalert(true)
 
-};
+  // };
 
-const hideAlert = () => {
-  setshowalert(false)
-};
 
-const handlechange = name=>(e)=>{
-   e.preventDefault()
-   setcustomer({...customer,[name]: e.target.value})
-   console.log(customer)
-  //  console.log(customer)
 
+  // const hideAlert = () => {
+  //   setshowalert(false)
+  // };
+
+  const handlechange = name => (e) => {
+    e.preventDefault()
+    setcustomer({ ...customer, [name]: e.target.value })
+    console.log(customer)
+    //  console.log(customer)
+
+
+  }
+  const passwordhandle = (e) => {
+    e.preventDefault()
+    password = e.target.value
+  }
+  const passwordconfirm = (e) => {
+    e.preventDefault()
+    confirmpassword = e.target.value
+  }
+  const handlechangetitle = (e) => {
+    e.preventDefault()
+    let titleC = e.target.value
+    settitle(titleC)
+    //  console.log(title)
+  }
+
+  const brand = () => {
+    axios.get(http + '/brand')
+      .then((response) => {
+        console.log(response.data)
+        // Alert.alert('', 'Register Successfully', [
+
+        //   {text: 'OK', onPress: () => console.log('OK Pressed')},
+        // ]);
+      })
+      .catch((error) => {
+        Alert.alert('', 'Error', [
+
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ]);
+        console.log(error)
+      })
+  }
+
+  const getswet = () => {
+    Swal.fire({
+      position:'center',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: true,
+      iconColor: '#c99742',
+      confirmButtonColor:"#c99742",
+
+      // customClass:"swalwide",   
+    })
    
-}
-const passwordhandle =(e)=>{
-  e.preventDefault()
-  password = e.target.value
-}
-const passwordconfirm =(e)=>{
-  e.preventDefault()
-  confirmpassword = e.target.value
-}
-const handlechangetitle =(e)=>{
-  e.preventDefault()
-   let titleC = e.target.value
-   settitle(titleC)
-  //  console.log(title)
-}
+  }
+  const registerdata = () => {
 
-const brand =()=>{
-  axios.get(http+'/brand')
-  .then((response)=>{
-      console.log(response.data)
-      // Alert.alert('', 'Register Successfully', [
-  
-      //   {text: 'OK', onPress: () => console.log('OK Pressed')},
-      // ]);
-  })
-  .catch((error)=>{
-    Alert.alert('', 'Error', [
-  
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ]);
-   console.log(error)
-  })
-}
+    const { fname, lname, email, phone } = customer;
 
-const alertf=()=>{
-  SweetAlert.showAlertWithOptions({
-    title: '',
-    subTitle: '',
-    confirmButtonTitle: 'OK',
-    confirmButtonColor: '#000',
-    otherButtonTitle: 'Cancel',
-    otherButtonColor: '#dedede',
-    style: 'success',
-    cancellable: true
-  },callback => console.log('callback'));
-  alert('register')
-}
-const registerdata=()=>{
-
-  const {fname,lname,email,phone} = customer;
-
-  let newword = "hello"
-  // let data = window.btoa(newword)
-  // console.log("encode",data)
-  let newpass = window.btoa(password)
+    let newword = "hello"
+    // let data = window.btoa(newword)
+    // console.log("encode",data)
+    let newpass = window.btoa(password)
     console.log(password)
-  let cpass = window.btoa(confirmpassword)
-      if(newpass != cpass){
-       Alert.alert('Password Does Not Match')
-      }
-      else{
-        let customerdata ={
-          "title":title,
-          "fname":fname,
-          "lname":lname,
-          "email":email,
-          "phone":phone,
-          "password":newpass
-      
-        }
-            axios.post(http+'/customer',customerdata)
-                .then((response)=>{
-                    console.log(response)
-                    Alert.alert('', 'Register Successfully', [
-                
-                      {text: 'OK', onPress: () => console.log('OK Pressed')},
-                    ]);
-                     navigation.navigate('Login')
-                })
-                .catch((error)=>{
-                  Alert.alert('', 'Error', [
-                
-                    {text: 'OK', onPress: () => console.log('OK Pressed')},
-                  ]);
-                  alert("something went wrong")
-                 console.log("error",error)
-                })
-      }
- 
-       
+    let cpass = window.btoa(confirmpassword)
+    if (newpass != cpass) {
+      Alert.alert('Password Does Not Match')
+    }
+    else {
+      let customerdata = {
+        "title": title,
+        "fname": fname,
+        "lname": lname,
+        "email": email,
+        "phone": phone,
+        "password": newpass
 
-   console.log(title)
-   console.log(customer)
-}
+      }
+      axios.post(http + '/customer', customerdata)
+        .then((response) => {
+
+          Swal.fire({
+            position:'center',
+            icon: 'success',
+            title: 'Register Successfully',
+            showConfirmButton: true,
+            iconColor: '#c99742',
+            confirmButtonColor:"#c99742",
+      
+            // customClass:"swalwide",   
+          })
+          // Swal.fire(
+          //   'Register Successfully',
+          //   '',
+          //   'success'
+          // )
+          console.log(response)
+          navigation.navigate('Login')
+        })
+        .catch((error) => {
+          Alert.alert('', 'Error', [
+
+            { text: 'OK', onPress: () => console.log('OK Pressed') },
+          ]);
+          alert("something went wrong")
+          console.log("error", error)
+        })
+    }
+
+
+
+    console.log(title)
+    console.log(customer)
+  }
 
 
   return (
@@ -231,7 +246,7 @@ const registerdata=()=>{
                   </Text>
                   {/* <input type="password" required placeholder="Confirm Password" value={customer.confirm}  onPress={handlechange} style={registercss.inputbox}/> */}
 
-                  <TextInput secureTextEntry={true}  value={confirmpassword} onChange={passwordconfirm} required placeholder="" style={registercss.inputbox}
+                  <TextInput secureTextEntry={true} value={confirmpassword} onChange={passwordconfirm} required placeholder="" style={registercss.inputbox}
                     keyboardType="numeric" />
                 </View>
 
@@ -240,19 +255,21 @@ const registerdata=()=>{
                   marginTop: 13, justifyContent: "center",
                   alignItems: "center"
                 }}>
-                  <Pressable style={registercss.sendmessage} onPress={()=>{registerdata()}}
+                  <Pressable style={registercss.sendmessage} onPress={() => { registerdata() }}
                   >
                     <Text style={registercss.sendmessagetext}>REGISTER</Text>
                   </Pressable>
-                  <Pressable style={registercss.sendmessage} onPress={()=>{alertf()}}
+
+                  <Pressable style={registercss.sendmessage} onPress={() => { getswet() }}
                   >
-                    <Text style={registercss.sendmessagetext}>alert</Text>
+                    <Text style={registercss.sendmessagetext}>sweet</Text>
                   </Pressable>
+
                 </View>
               </View>
             </View>
             <View style={registercss.lostpassbox}>
-              <Text style={registercss.lostyouracconttext}>Already have an account?<Text  onPress={()=>{navigation.navigate('Login')}} style={registercss.lostpasswordboxtext}>LOG IN HERE</Text></Text>
+              <Text style={registercss.lostyouracconttext}>Already have an account?<Text onPress={() => { navigation.navigate('Login') }} style={registercss.lostpasswordboxtext}>LOG IN HERE</Text></Text>
             </View>
           </View>
 
