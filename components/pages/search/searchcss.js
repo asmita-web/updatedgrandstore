@@ -158,7 +158,7 @@ inputbox: {
     padding: 10,
     // borderColor: "white",
     borderRadius:3,
-    borderWidth: 1,
+    borderWidth:"none",
     width: "100%",
     color: "#a8a8a8"
 },

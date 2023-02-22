@@ -7,7 +7,8 @@ import { registercss } from "./registercss";
 import { logincss } from "../logincss";
 import { http } from "../../../../../Restservice";
 import axios from "axios";
-import AwesomeAlert from 'react-native-awesome-alerts';
+import SweetAlert from "react-native-sweet-alert";
+// import AwesomeAlert from 'react-native-awesome-alerts';
 
 
 
@@ -96,6 +97,20 @@ const brand =()=>{
     ]);
    console.log(error)
   })
+}
+
+const alertf=()=>{
+  SweetAlert.showAlertWithOptions({
+    title: '',
+    subTitle: '',
+    confirmButtonTitle: 'OK',
+    confirmButtonColor: '#000',
+    otherButtonTitle: 'Cancel',
+    otherButtonColor: '#dedede',
+    style: 'success',
+    cancellable: true
+  },callback => console.log('callback'));
+  alert('register')
 }
 const registerdata=()=>{
 
@@ -228,6 +243,10 @@ const registerdata=()=>{
                   <Pressable style={registercss.sendmessage} onPress={()=>{registerdata()}}
                   >
                     <Text style={registercss.sendmessagetext}>REGISTER</Text>
+                  </Pressable>
+                  <Pressable style={registercss.sendmessage} onPress={()=>{alertf()}}
+                  >
+                    <Text style={registercss.sendmessagetext}>alert</Text>
                   </Pressable>
                 </View>
               </View>
